@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Vejrportalen.dk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="container p-0">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div>
+      <a class="navbar-brand" href="#">Vejrportalen</a>
+      <br/>
+      <span class="text-info small p-3">Vejret er lige blevet bedre</span>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul id="nav-items" class="navbar-nav ml-auto text-right">
+        <li class="nav-item">
+          <!--<a id="nav-wheater" data-target="nav-click" class="nav-link" href="#">Vejrudsigten<span class="sr-only">(current)</span></a>-->
+          <a id="nav-wheater" data-target="nav-click" class="nav-link" href="#">Vejrudsigten</a>
+        </li>
+        <li class="nav-item">
+          <a id="nav-wheaterreport" data-target="nav-click" class="nav-link" href="#">Vejrindberetning</a>
+        </li>
+        <li class="nav-item">
+          <a id="nav-registration" data-target="nav-click" class="nav-link" href="#">Registrering</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main class="container bg-light pb-2">
+  <section class="row pt-3">
+
+    <aside class="col-md-3 border-right">
+      <ul id="alerts" class="list-group">
+        <li class="alert alert-success" role="alert">
+          Ingen varslinger
+        </li>
+        <li class="alert alert-warning" role="alert">
+          Advarsel
+        </li>
+        <li class="alert alert-danger" role="alert">
+          Katastrofe
+        </li>
+      </ul>
+      </div>
+    </aside>
+    <section class="col-md-9">
+      <div class="row py-2 w-100 mx-auto">
+        <form class="form-inline">
+          <input id="searchText" class="form-control mr-sm-2" type="text" placeholder="Søg efter by"
+                 aria-label="Search">
+          <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="button">Søg</button>
+        </form>
+      </div>
+      <hr>
+      </div>
+      <div id="wheaterView">
+        <h1 data-target="headlineText">Hvidovre</h1>
+
+        <section class="row bg-transparent">
+          <div class="col">
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                <tr>
+                  <td>
+                    <div class="card wheater-background">
+                      <div class="card-header text-white text-center text-white">
+                        Mandag
+                      </div>
+                      <div class="card-body">
+                        <p class="text-white">
+                          <i class="fas fa fa-sun" style="color: yellow"></i>
+                          18 &#176;
+                        </p>
+                        <div class="text-white">
+                          overskyet
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="card wheater-background">
+                      <div class="card-header text-white text-center text-white">
+                        Tirsdag
+                      </div>
+                      <div class="card-body">
+                        <p class="text-white">
+                          <i class="fas fa fa-umbrella" style="color: gray"></i>
+                          15 &#176;
+                        </p>
+                        <div class="text-white">
+                          overskyet
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="card wheater-background">
+                      <div class="card-header text-white text-center text-white">
+                        Onsdag
+                      </div>
+                      <div class="card-body">
+                        <p class="text-white">
+                          <i class="fas fa fa-cloud" style="color: lightgray"></i>
+                          15 &#176;
+                        </p>
+                        <div class="text-white">
+                          overskyet
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="card wheater-background">
+                      <div class="card-header text-white text-center text-white">
+                        Torsdag
+                      </div>
+                      <div class="card-body">
+                        <p class="text-white">
+                          <i class="fas fa fa-cloud" style="color: lightgray"></i>
+                          16 &#176;
+                        </p>
+                        <div class="text-white">
+                          overskyet
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="width: 20%">
+                    <div class="card wheater-background">
+                      <div class="card-header text-white text-center text-white">
+                        Fredag
+                      </div>
+                      <div class="card-body">
+                        <p class="text-white">
+                          <i class="fas fa fa-sun" style="color: yellow"></i>
+                          18 &#176;
+                        </p>
+                        <div class="text-white">
+                          Sol
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <span class="text-info small">Sidst opdateret <time>18. september 2018</time></span>
+          </div>
+        </section>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-4  p-4">
+          <video src="./assets/videos/vejrportalen.mp4" controls class="embed-responsive embed-responsive-16by9">
+            Video er ikke understøttes
+          </video>
+        </div>
+      </div>
+    </section>
+  </section>
+</main>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
