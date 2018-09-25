@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import './scss/app.scss';
 import 'bootstrap';
+=======
+//
+
+>>>>>>> f15755cb9d7114b4709b510c077f26b70074e2a7
 
 // alerts
 import './alerts/alerts.css';
