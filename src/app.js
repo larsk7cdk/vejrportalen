@@ -1,3 +1,6 @@
+import './scss/app.scss';
+import 'bootstrap';
+
 // alerts
 import './alerts/alerts.css';
 import './alerts/alerts.html';
