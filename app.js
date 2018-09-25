@@ -1,33 +1,24 @@
-// alerts
-import './alerts/alerts.css';
-import './alerts/alerts.html';
-
-// wheater
-import './wheater/wheater.html';
-
-// app
-import "./app.css";
-
-
 $(document).ready(function () {
-
   loadAlerts();
-  // changePage("wheater");
-  // setupEvents();
+  changePage("wheater#wheater");
+  setupEvents();
 
 
   // functions
   function loadAlerts() {
-    $("#alerts").load("alerts.html");
-    $("#content").load("wheater.html");
+    $("#alerts").load("./alerts/alerts.html");
+    // $("#content").load("./wheater/wheater.html");
 
   }
 
-  function changePage(feature) {
-    $("#content").load(feature + "/" + "index.html", function () {
-      animateOpacity("#content", 500, 0.3);
+  function changePage(target) {
+    var feature = target.split('#')[0];
+    var page    = target.split('#')[1];
 
-      const id = "nav-" + page;
+    $("#content").load(feature + "/" + page + ".html", function () {
+      animateOpacity("#content", 500, 0.5);
+
+      var id = "nav-" + feature;
       setActive(id);
     });
   }
@@ -38,7 +29,7 @@ $(document).ready(function () {
   }
 
   function animateOpacity(selector, speed, startOpacity) {
-    const s = $(selector);
+    var s = $(selector);
     s.css({opacity: startOpacity});
     s.animate({opacity: "1"}, speed);
   }
@@ -47,7 +38,7 @@ $(document).ready(function () {
   // setup events
   function setupEvents() {
     $("a[data-target='nav-click']").click(function (event) {
-        const id = event.currentTarget.id;
+        var id = event.currentTarget.id;
         changePage(id.substring(4, id.length));
       }
     );
