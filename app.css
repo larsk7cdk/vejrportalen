@@ -9,3 +9,9 @@ ul {
   background: linear-gradient(to bottom, #2d3687 0%, #3dbcec 60%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2d3687', endColorstr='#3dbcec', GradientType=0);
 }
+
+.footer {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}

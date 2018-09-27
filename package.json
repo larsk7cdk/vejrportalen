@@ -16,5 +16,8 @@
     "vejrportalen"
   ],
   "author": "Lars Larsen",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^4.1.3"
+  }
 }
