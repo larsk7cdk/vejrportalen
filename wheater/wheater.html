@@ -1,7 +1,7 @@
 <article class="row py-2 w-100 mx-auto">
-  <form class="form-inline">
+  <form class="form-inline" role="search">
     <input id="searchText" class="form-control mr-sm-2" type="text" placeholder="Søg efter by"
-           aria-label="Search">
+           aria-label="Search text">
     <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="button">Søg</button>
   </form>
 </article>
@@ -9,7 +9,7 @@
 <article id="wheaterView">
   <header>
     <h1 data-target="headlineText">Hvidovre</h1>
-
+    <p>Her er vejrudsigten for de næste 5 dage i <strong>Hvidovre</strong></p>
   </header>
 
   <section class="row bg-transparent">
@@ -102,7 +102,9 @@
           </tbody>
         </table>
       </div>
-      <span class="text-info small">Sidst opdateret <time>18. september 2018</time></span>
+      <footer>
+        <span class="text-info small">Sidst opdateret <time>18. september 2018</time></span>
+      </footer>
     </div>
   </section>
 </article>

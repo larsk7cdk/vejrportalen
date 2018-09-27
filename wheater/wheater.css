@@ -1,1 +1,8 @@
+.wheater-background {
+  background: #2d3687;
+  background: -moz-linear-gradient(top, #2d3687 0%, #3dbcec 60%);
+  background: -webkit-linear-gradient(top, #2d3687 0%, #3dbcec 60%);
+  background: linear-gradient(to bottom, #2d3687 0%, #3dbcec 60%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2d3687', endColorstr='#3dbcec', GradientType=0);
+}
 
