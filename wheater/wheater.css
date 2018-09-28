@@ -1,4 +1,5 @@
 .wheater-background {
+  width: 120px;
   background: #2d3687;
   background: -moz-linear-gradient(top, #2d3687 0%, #3dbcec 60%);
   background: -webkit-linear-gradient(top, #2d3687 0%, #3dbcec 60%);

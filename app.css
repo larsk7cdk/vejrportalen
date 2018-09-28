@@ -2,9 +2,6 @@ ul {
   list-style: none;
 }
 
-
-.footer {
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
+footer {
+  font-size: 0.8em;
 }
