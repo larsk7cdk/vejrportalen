@@ -6,3 +6,14 @@
   background: linear-gradient(to bottom, #2d3687 0%, #3dbcec 60%);
 }
 
+.fill {
+  height: 100vh;
+}
+
+@media (max-width: 767px) {
+
+  .border-right {
+    border: 0 solid !important
+  }
+}
+
