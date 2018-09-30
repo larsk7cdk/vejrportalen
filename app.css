@@ -5,3 +5,20 @@ ul {
 footer {
   font-size: 0.8em;
 }
+
+/* icon colors */
+*.icon-sun {
+  color: yellow;
+}
+
+*.icon-umbrella {
+  color: blue;
+}
+
+*.icon-cloud-dark {
+  color: gray;
+}
+
+*.icon-cloud-light {
+  color: lightgray;
+}
