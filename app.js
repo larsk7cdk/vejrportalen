@@ -1,6 +1,7 @@
 $(document).ready(function () {
   loadAlerts();
-  changePage("wheater#wheater");
+  // changePage("wheater#wheater");
+  changePage("subscription#subscription-form");
   setupEvents();
 
 
