@@ -10,4 +10,13 @@ $(document).ready(function () {
 
   });
 
+  $("form").submit(function (event) {
+    event.preventDefault();
+
+    $.post('http://localhost/vejrportalen-api/subscriptions/mail.php',
+      {"firstname": "Lars"});
+
+    // console.log($('form').serializeArray());
+
+  });
 });
