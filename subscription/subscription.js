@@ -1,22 +1,34 @@
 $(document).ready(function () {
 
-  $("#getBtn").click(function () {
-    $.get("http://localhost/vejrportalen-api/subscriptions/get.php", function (data, status) {
+  $("#btnSubmit").on('click', function () {
+    // event.preventDefault();
 
-      $("#listData").innerText = JSON.stringify(data);
+    var data = {
+      "subscription_id" : null,
+      "email": $("#email").val(),
+      "firstname": $("#firstname").val(),
+      "lastname": $("#lastname").val(),
+      "adress": $("#adress").val(),
+      "postal_code": $("#postal_code").val(),
+      "city": $("#city").val(),
+      "phone": $("#phone").val(),
+      "titel": $("#title").val()
+    }
 
-      // alert("Data: " + JSON.stringify(data) + "\nStatus: " + status);
-    });
+    // console.log(JSON.stringify(data));
 
-  });
-
-  $("form").submit(function (event) {
-    event.preventDefault();
-
-    $.post('http://localhost/vejrportalen-api/subscriptions/mail.php',
-      {"firstname": "Lars"});
-
-    // console.log($('form').serializeArray());
-
+    $.ajax({
+      url: 'api/subscriptions/post.php',
+      type: "POST",
+      contentType: "application/json",
+      dataType: "json",
+      data: JSON.stringify(data),
+      success: function (result) {
+        console.log(result);
+      },
+      error: function (xhr, resp, text) {
+        console.log('error', xhr, resp, text);
+      }
+    })
   });
 });

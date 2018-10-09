@@ -5,25 +5,45 @@
   </header>
 </article>
 
-
-<!--<button id="getBtn" class="btn btn-outline-success my-2 my-sm-0" type="button">Hent data</button>-->
-
-<!--pre-->
-<!--<pre id="listData"></pre>-->
-
-<form role="form">
+<form id="form" role="form">
   <div class="form-row">
     <div class="col-md-6 offset-md-3">
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+        <span class="text-danger small">* Skal være udfyldt!</span>
       </div>
       <div class="form-group">
         <label for="firstname">Fornavn</label>
         <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Fornavn">
       </div>
       <div class="form-group">
-        <button type="submit" id="btnSubmit" class="btn btn-primary">Sign in</button>
+        <label for="lastname">Efternavn</label>
+        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Efternavn">
+      </div>
+      <div class="form-group">
+        <label for="adress">Adresse</label>
+        <input type="text" class="form-control" id="adress" name="adress" placeholder="Adresse">
+      </div>
+      <div class="form-group">
+        <label for="postal_code">Postnummer</label>
+        <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="Postnummer">
+      </div>
+      <div class="form-group">
+        <label for="city">By</label>
+        <input type="text" class="form-control" id="city" name="city" placeholder="By">
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefon </label>
+        <input type="text" class="form-control" id="phone" name="phone" placeholder="Telefon">
+        <span class="text-danger small">* Skal være udfyldt!</span>
+      </div>
+      <div class="form-group">
+        <label for="title">Titel</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Titel">
+      </div>
+      <div class="form-group">
+        <button type="button" id="btnSubmit" class="btn btn-primary">Sign in</button>
       </div>
     </div>
   </div>
