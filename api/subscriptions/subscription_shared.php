@@ -4,7 +4,7 @@ include_once '../shared/database.php';
 define("READ_SUCCESS", "");
 define("READ_NO_ROWS", "Ingen abonnementer fundet");
 
-define("CREATE_EMAIL", "Email eksisterer allerede");
+define("CREATE_EMAIL_EXISTS", "Email eksisterer allerede");
 define("CREATE_SUCCESS", "Nyt abonnement er oprettet");
 define("CREATE_ERROR", "Fejl under oprettelse af abonnement");
 
@@ -61,19 +61,19 @@ class subscription_shared
 
         if (mysqli_num_rows($result) > 0) {
             mysqli_close($conn);
-            return CREATE_EMAIL;
+            return CREATE_EMAIL_EXISTS;
         }
-
+        
         $sql = "INSERT INTO {$this->table_name} (email, firstname, lastname, adress, postal_code, city, phone, titel)
                 VALUES ('{$subscription->email}', '{$subscription->firstname}', '{$subscription->lastname}',
-                        '{$subscription->adress}', {$subscription->postal_code}, '{$subscription->city}',
+                        '{$subscription->adress}', '{$subscription->postal_code}', '{$subscription->city}',
                         '{$subscription->phone}', '{$subscription->titel}')";
 
         if (mysqli_query($conn, $sql)) {
             $result = CREATE_SUCCESS;
         } else {
 
-            $result = CREATE_ERROR . $conn->error;
+            $result = CREATE_ERROR;
         }
 
         mysqli_close($conn);
