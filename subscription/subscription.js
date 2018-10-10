@@ -4,7 +4,7 @@ $(document).ready(function () {
     // event.preventDefault();
 
     var data = {
-      "subscription_id" : null,
+      "subscription_id": null,
       "email": $("#email").val(),
       "firstname": $("#firstname").val(),
       "lastname": $("#lastname").val(),
@@ -15,8 +15,6 @@ $(document).ready(function () {
       "titel": $("#title").val()
     }
 
-    // console.log(JSON.stringify(data));
-
     $.ajax({
       url: 'api/subscriptions/post.php',
       type: "POST",
@@ -24,7 +22,7 @@ $(document).ready(function () {
       dataType: "json",
       data: JSON.stringify(data),
       success: function (result) {
-        console.log(result);
+
       },
       error: function (xhr, resp, text) {
         console.log('error', xhr, resp, text);

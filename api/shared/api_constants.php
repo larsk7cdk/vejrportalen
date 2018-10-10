@@ -1,6 +1,8 @@
 <?php
 // ERROR LEVEL
 define("ERROR_LEVEL", E_ALL);
+// define("ERROR_LEVEL", 0);
+
 
 // DB SETTINGS
 define("DB_SERVER", "localhost");

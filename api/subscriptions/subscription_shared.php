@@ -1,4 +1,6 @@
 <?php
+include_once "../models/response_result.php";
+include_once '../shared/shared_constants.php';
 include_once '../shared/database.php';
 
 define("READ_SUCCESS", "");
@@ -45,7 +47,7 @@ class subscription_shared
 
             $result = $subscriptions_array;
         } else {
-            $result = READ_NO_ROWS;
+            $result = new ResponseResult(SUCCESS, READ_NO_ROWS);
         }
 
         mysqli_close($conn);
@@ -61,19 +63,18 @@ class subscription_shared
 
         if (mysqli_num_rows($result) > 0) {
             mysqli_close($conn);
-            return CREATE_EMAIL_EXISTS;
+            return $result = new ResponseResult(SUCCESS, CREATE_EMAIL_EXISTS);
         }
-        
+
         $sql = "INSERT INTO {$this->table_name} (email, firstname, lastname, adress, postal_code, city, phone, titel)
                 VALUES ('{$subscription->email}', '{$subscription->firstname}', '{$subscription->lastname}',
                         '{$subscription->adress}', '{$subscription->postal_code}', '{$subscription->city}',
                         '{$subscription->phone}', '{$subscription->titel}')";
 
         if (mysqli_query($conn, $sql)) {
-            $result = CREATE_SUCCESS;
+            $result = new ResponseResult(SUCCESS, CREATE_SUCCESS);
         } else {
-
-            $result = CREATE_ERROR;
+            $result = new ResponseResult(ERROR, CREATE_ERROR, $conn->error);
         }
 
         mysqli_close($conn);
@@ -96,9 +97,9 @@ class subscription_shared
                 WHERE subscription_id = {$subscription->subscription_id}";
 
         if (mysqli_query($conn, $sql)) {
-            $result = UPDATE_SUCCESS;
+            $result = new ResponseResult(SUCCESS, UPDATE_SUCCESS);
         } else {
-            $result = UPDATE_ERROR;
+            $result = new ResponseResult(ERROR, UPDATE_ERROR);
         }
 
         mysqli_close($conn);
@@ -112,9 +113,9 @@ class subscription_shared
         $sql = "DELETE FROM {$this->table_name} WHERE subscription_id = {$id}";
 
         if (mysqli_query($conn, $sql)) {
-            $result = DELETE_SUCCESS;
+            $result = new ResponseResult(SUCCESS, DELETE_SUCCESS);
         } else {
-            $result = DELETE_ERROR;
+            $result = new ResponseResult(ERROR, DELETE_ERROR);
         }
 
         mysqli_close($conn);
