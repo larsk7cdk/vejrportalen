@@ -1,14 +1,13 @@
 $(document).ready(function () {
   loadAlerts();
-  // changePage("wheater#wheater");
-  changePage("subscription#subscription-form");
+  changePage("wheater#wheater");
+  // changePage("subscription#subscription-form");
   setupEvents();
 
 
   // functions
   function loadAlerts() {
     $("#alerts").load("./alerts/alerts.html");
-    // $("#content").load("./wheater/wheater.html");
 
   }
 
