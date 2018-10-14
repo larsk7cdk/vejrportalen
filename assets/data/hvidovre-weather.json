@@ -1,0 +1,42 @@
+{
+  "coord": {
+    "lon": 12.48,
+    "lat": 55.64
+  },
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 19.55,
+    "pressure": 1023,
+    "humidity": 77,
+    "temp_min": 16,
+    "temp_max": 22
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 5.7,
+    "deg": 160
+  },
+  "clouds": {
+    "all": 0
+  },
+  "dt": 1539427800,
+  "sys": {
+    "type": 1,
+    "id": 5245,
+    "message": 0.0027,
+    "country": "DK",
+    "sunrise": 1539409034,
+    "sunset": 1539447252
+  },
+  "id": 2619528,
+  "name": "Hvidovre",
+  "cod": 200
+}
