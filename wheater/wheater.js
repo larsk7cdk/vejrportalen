@@ -1,15 +1,17 @@
 $(document).ready(function () {
-  var API_KEY = 'fdb9a4d45104310c165d2a834b8171d1';
-  var API_URL = 'https://api.openweathermap.org/data/2.5/';
-  var API_UNITS = 'metric';
+  const API_KEY   = 'fdb9a4d45104310c165d2a834b8171d1';
+  const API_URL   = 'https://api.openweathermap.org/data/2.5/';
+  const API_UNITS = 'metric';
 
-  var WEEK_DAY_NAMES = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
-  var WEATHER_TEMP_TIME = "15:00:00";
+  const WEEK_DAY_NAMES    = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
+  const WEATHER_TEMP_TIME = "15:00:00";
 
-  $("#weather-content").hide();
+  $("#weather-loading-content").hide();
+  $("#weather-success-content").hide();
+  $("#weather-error-content").hide();
 
-  $("#searchBtn").click(function () {
-    var city = $("#searchText").val();
+  $("#search-btn").click(function () {
+    var city      = $("#search-text").val();
     var cityUpper = city.charAt(0).toUpperCase() + city.slice(1);
 
     $("#header-city").text(cityUpper);
@@ -18,27 +20,33 @@ $(document).ready(function () {
     getWeather(city);
   });
 
-
   function getWeather(city, querytype) {
     // var url = API_URL + "weather?q=" + city + "&appid=" + API_KEY + "&units=" + API_UNITS;
     // var url = API_URL + "forecast?q=" + city + "&appid=" + API_KEY + "&units=" + API_UNITS;
-    var url = "/assets/data/hvidovre-forecastx.json";
+    var url = "/assets/data/hvidovre-forecast.json";
 
-    $.getJSON(url, function (data) {
-        var filteredWeatherData = filterWeatherData(data);
-        var parsedWeatherData = parseWeatherData(filteredWeatherData);
-        setWeatherData(parsedWeatherData);
-      }
-    )
-      .done(function () {
-        $("#weather-content").show();
-      })
-      .fail(function () {
-        console.log("error");
-      })
-      .always(function () {
-        // console.log("complete");
-      });
+    $("#weather-loading-content").show();
+    $("#weather-error-content").hide();
+
+    setTimeout(function () {
+      $.getJSON(url, function (data) {
+          var filteredWeatherData = filterWeatherData(data);
+          var parsedWeatherData   = parseWeatherData(filteredWeatherData);
+          setWeatherData(parsedWeatherData);
+        }
+      )
+        .done(function () {
+          $("#weather-success-content").show();
+        })
+        .fail(function () {
+          $("#weather-error-content").show();
+          console.log("error");
+        })
+        .always(function () {
+          $("#weather-loading-content").hide();
+          $("#weather-success-content").hide();
+        });
+    }, 3000);
   }
 
   function filterWeatherData(data) {
