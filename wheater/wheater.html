@@ -1,73 +1,83 @@
 <article class="row py-2 w-100 mx-auto">
   <form class="form-inline" role="search">
     <input id="searchText" class="form-control mr-sm-2" type="text" placeholder="Søg efter by"
-           aria-label="Search text">
+           aria-label="Search text" required>
     <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="button">Søg</button>
   </form>
 </article>
 <hr>
-<article>
+<article id="weather-content">
   <header>
-    <h1 data-target="headlineText">Hvidovre</h1>
-    <p>Her er vejrudsigten for de næste 5 dage i <strong>Hvidovre</strong></p>
+    <h1 id="header-city"></h1>
+    <p>Her er vejrudsigten for de næste 5 dage i <strong id="content-city"></strong></p>
   </header>
-
-  <section class="d-flex  justify-content-lg-around flex-wrap text-white">
+  <section id="weather-forecast" class="d-flex  justify-content-lg-around flex-wrap text-white">
     <article class="mb-2 mr-2">
       <div class="card wheater-background">
-        <h5 class="card-header text-center">Mandag</h5>
-        <div class="card-body">
-          <p><i class="fas fa fa-sun icon-sun"></i> 18 &#176;</p>
-          <p>Overskyet</p>
+        <h5 class="card-header text-center" id="weekday-0-name"></h5>
+        <div class="card-body py-0">
+          <span>
+            <img id="weekday-0-img">
+            <span id="weekday-0-temp"></span>
+          </span>
+          <p id="weekday-0-desc"></p>
         </div>
       </div>
     </article>
 
     <article class="mb-2 mr-2">
       <div class="card wheater-background">
-        <h5 class="card-header text-center">Tirsdag</h5>
-        <div class="card-body">
-          <p><i class="fas fa fa-umbrella icon-umbrella"></i> 12 &#176;</p>
-          <p>Regn</p>
+        <h5 class="card-header text-center" id="weekday-1-name"></h5>
+        <div class="card-body py-0">
+          <span>
+            <img id="weekday-1-img">
+            <span id="weekday-1-temp"></span>
+          </span>
+          <p id="weekday-1-desc"></p>
         </div>
       </div>
     </article>
 
     <article class="mb-2 mr-2">
       <div class="card wheater-background">
-        <h5 class="card-header text-center">Onsdag</h5>
-        <div class="card-body">
-          <p><i class="fas fa fa-cloud icon-cloud-dark"></i> 13 &#176;</p>
-          <p>Overskyet</p>
+        <h5 class="card-header text-center" id="weekday-2-name"></h5>
+        <div class="card-body py-0">
+          <span>
+            <img id="weekday-2-img">
+            <span id="weekday-2-temp"></span>
+          </span>
+          <p id="weekday-2-desc"></p>
         </div>
       </div>
     </article>
 
     <article class="mb-2 mr-2">
       <div class="card wheater-background">
-        <h5 class="card-header text-center">Torsdag</h5>
-        <div class="card-body">
-          <p><i class="fas fa fa-cloud icon-cloud-light"></i> 15 &#176;</p>
-          <p>Overskyet</p>
+        <h5 class="card-header text-center" id="weekday-3-name"></h5>
+        <div class="card-body py-0">
+          <span>
+            <img id="weekday-3-img">
+            <span id="weekday-3-temp"></span>
+          </span>
+          <p id="weekday-3-desc"></p>
         </div>
       </div>
     </article>
 
     <article class="mb-2 mr-2">
       <div class="card wheater-background">
-        <h5 class="card-header text-center">Fredag</h5>
-        <div class="card-body">
-          <p><i class="fas fa fa-sun icon-sun"></i> 20 &#176;</p>
-          <p>Sol</p>
+        <h5 class="card-header text-center" id="weekday-4-name"></h5>
+        <div class="card-body py-0">
+          <span>
+            <img id="weekday-4-img">
+            <span id="weekday-4-temp"></span>
+          </span>
+          <p id="weekday-4-desc"></p>
         </div>
       </div>
     </article>
   </section>
 </article>
-
-
-<button id="get-wheater-btn">Hent vejret</button>
-
 
 <article class="row mt-4">
   <section class="col-md-4  p-4">
@@ -76,6 +86,5 @@
     </video>
   </section>
 </article>
-
 
 <script src="./wheater/wheater.js"></script>

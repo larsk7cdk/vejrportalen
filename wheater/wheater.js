@@ -1,40 +1,40 @@
 $(document).ready(function () {
-  var API_KEY   = 'fdb9a4d45104310c165d2a834b8171d1';
-  var API_URL   = 'https://api.openweathermap.org/data/2.5/';
+  var API_KEY = 'fdb9a4d45104310c165d2a834b8171d1';
+  var API_URL = 'https://api.openweathermap.org/data/2.5/';
   var API_UNITS = 'metric';
 
   var WEEK_DAY_NAMES = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
+  var WEATHER_TEMP_TIME = "15:00:00";
 
-  // https://api.openweathermap.org/data/2.5/forecast?q=hvidovre&appid=fdb9a4d45104310c165d2a834b8171d1&units=metric
+  $("#weather-content").hide();
 
   $("#searchBtn").click(function () {
     var city = $("#searchText").val();
+    var cityUpper = city.charAt(0).toUpperCase() + city.slice(1);
+
+    $("#header-city").text(cityUpper);
+    $("#content-city").text(cityUpper);
+
     getWeather(city);
   });
 
 
   function getWeather(city, querytype) {
-
     // var url = API_URL + "weather?q=" + city + "&appid=" + API_KEY + "&units=" + API_UNITS;
     // var url = API_URL + "forecast?q=" + city + "&appid=" + API_KEY + "&units=" + API_UNITS;
-
-    var url = "/assets/data/hvidovre-forecast.json";
+    var url = "/assets/data/hvidovre-forecastx.json";
 
     $.getJSON(url, function (data) {
-
         var filteredWeatherData = filterWeatherData(data);
-        var parsedWeatherData   = parseWeatherData(filteredWeatherData);
-
-        console.log(parsedWeatherData);
-
-        // console.log("success");
+        var parsedWeatherData = parseWeatherData(filteredWeatherData);
+        setWeatherData(parsedWeatherData);
       }
     )
       .done(function () {
-        // console.log("second success");
+        $("#weather-content").show();
       })
       .fail(function () {
-        // console.log("error");
+        console.log("error");
       })
       .always(function () {
         // console.log("complete");
@@ -43,7 +43,7 @@ $(document).ready(function () {
 
   function filterWeatherData(data) {
     return data.list.filter(function (item) {
-      return item.dt_txt.endsWith("15:00:00");
+      return item.dt_txt.endsWith(WEATHER_TEMP_TIME);
     });
   }
 
@@ -68,7 +68,12 @@ $(document).ready(function () {
     })
   }
 
-  function getDayName(date) {
-
+  function setWeatherData(data) {
+    $.each(data, function (key, value) {
+      $("#weekday-" + key + "-name").text(value.week_day_name);
+      $("#weekday-" + key + "-img").attr('src', value.weather_icon);
+      $("#weekday-" + key + "-temp").html(value.temp + "&#176;");
+      $("#weekday-" + key + "-desc").text(value.weather_description);
+    });
   }
 });
