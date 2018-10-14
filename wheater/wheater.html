@@ -1,20 +1,28 @@
 <article class="row py-2 w-100 mx-auto">
-  <form class="form-inline" role="search">
+  <form id="search-form" class="form-inline" role="search">
     <input id="search-text" class="form-control mr-sm-2" type="text" placeholder="Søg efter by"
            aria-label="Search text" required>
-    <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="button">Søg</button>
+    <button id="search-btn" type="submit" class="btn btn-outline-success my-2 my-sm-0">Hent</button>
   </form>
 </article>
 <hr>
 
+<article id="weather-no-content">
+    <p class="pt-2">Der er ikke hentet nogen vejrudsigt</p>
+
+</article>
+
 <article id="weather-loading-content">
-  Loading...
+  <div class="text-center">
+    <i class="fas fa-sync fa-spin fa-3x"></i>
+    <p class="pt-2">Henter 5-døgns vejrudsigten for <span data-target="city"></span></p>
+  </div>
 </article>
 
 <article id="weather-success-content">
   <header>
-    <h1 id="header-city"></h1>
-    <p>Her er vejrudsigten for de næste 5 dage i <strong id="content-city"></strong></p>
+    <h1 data-target="city"></h1>
+    <p>Her er vejrudsigten for de næste 5 dage i <strong data-target="city"></strong></p>
   </header>
   <section id="weather-forecast" class="d-flex  justify-content-lg-around flex-wrap text-white">
     <article class="mb-2 mr-2">
@@ -84,8 +92,9 @@
   </section>
 </article>
 
-<article id="weather-error-content">
-  <p>Error</p>
+<article id="weather-error-content" class="pb-2">
+  <h2 class="text-danger">Ups...</h2>
+  <p>Den valgte by kan ikke findes, prøv igen...</p>
 </article>
 
 <article class="row mt-4">
@@ -97,3 +106,4 @@
 </article>
 
 <script src="./wheater/wheater.js"></script>
+
