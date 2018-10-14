@@ -1,0 +1,5 @@
+#hour,
+#minute,
+#second {
+  transition: transform .5s ease-in-out;
+}
