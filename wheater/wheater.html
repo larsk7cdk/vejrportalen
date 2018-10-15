@@ -8,7 +8,7 @@
 <hr>
 
 <article id="weather-no-content">
-    <p class="pt-2">Der er ikke hentet nogen vejrudsigt</p>
+  <p class="pt-2">Der er ikke hentet nogen vejrudsigt</p>
 
 </article>
 
@@ -24,70 +24,37 @@
     <h1 data-target="city"></h1>
     <p>Her er vejrudsigten for de næste 5 dage i <strong data-target="city"></strong></p>
   </header>
-  <section id="weather-forecast" class="d-flex  justify-content-lg-around flex-wrap text-white">
-    <article class="mb-2 mr-2">
-      <div class="card wheater-background">
-        <h5 class="card-header text-center" id="weekday-0-name"></h5>
-        <div class="card-body py-0">
-          <span>
-            <img id="weekday-0-img">
-            <span id="weekday-0-temp"></span>
-          </span>
-          <p id="weekday-0-desc"></p>
-        </div>
-      </div>
-    </article>
 
-    <article class="mb-2 mr-2">
-      <div class="card wheater-background">
-        <h5 class="card-header text-center" id="weekday-1-name"></h5>
-        <div class="card-body py-0">
-          <span>
-            <img id="weekday-1-img">
-            <span id="weekday-1-temp"></span>
-          </span>
-          <p id="weekday-1-desc"></p>
-        </div>
-      </div>
+  <section id="weather-forecast" class="weather-forecast text-white">
+    <article class="wheater-card">
+      <h5 id="weekday-0-name"></h5>
+      <img id="weekday-0-img"><br>
+      <span id="weekday-0-temp"></span><br>
+      <span id="weekday-0-desc"></span><br>
     </article>
-
-    <article class="mb-2 mr-2">
-      <div class="card wheater-background">
-        <h5 class="card-header text-center" id="weekday-2-name"></h5>
-        <div class="card-body py-0">
-          <span>
-            <img id="weekday-2-img">
-            <span id="weekday-2-temp"></span>
-          </span>
-          <p id="weekday-2-desc"></p>
-        </div>
-      </div>
+    <article class="wheater-card">
+      <h5 id="weekday-1-name"></h5>
+      <img id="weekday-1-img"><br>
+      <span id="weekday-1-temp"></span><br>
+      <span id="weekday-1-desc"></span><br>
     </article>
-
-    <article class="mb-2 mr-2">
-      <div class="card wheater-background">
-        <h5 class="card-header text-center" id="weekday-3-name"></h5>
-        <div class="card-body py-0">
-          <span>
-            <img id="weekday-3-img">
-            <span id="weekday-3-temp"></span>
-          </span>
-          <p id="weekday-3-desc"></p>
-        </div>
-      </div>
+    <article class="wheater-card">
+      <h5 id="weekday-2-name"></h5>
+      <img id="weekday-2-img"><br>
+      <span id="weekday-2-temp"></span><br>
+      <span id="weekday-2-desc"></span><br>
     </article>
-
-    <article class="mb-2 mr-2">
-      <div class="card wheater-background">
-        <h5 class="card-header text-center" id="weekday-4-name"></h5>
-        <div class="card-body py-0">
-          <span>
-            <img id="weekday-4-img">
-            <span id="weekday-4-temp"></span>
-          </span>
-          <p id="weekday-4-desc"></p>
-        </div>
-      </div>
+    <article class="wheater-card">
+      <h5 id="weekday-3-name"></h5>
+      <img id="weekday-3-img"><br>
+      <span id="weekday-3-temp"></span><br>
+      <span id="weekday-3-desc"></span><br>
+    </article>
+    <article class="wheater-card">
+      <h5 id="weekday-4-name"></h5>
+      <img id="weekday-4-img"><br>
+      <span id="weekday-4-temp"></span><br>
+      <span id="weekday-4-desc"></span><br>
     </article>
   </section>
 </article>
@@ -96,7 +63,6 @@
   <h2 class="text-danger">Ups...</h2>
   <p>Den valgte by kan ikke findes, prøv igen...</p>
 </article>
-
 
 
 <script src="./wheater/wheater.js"></script>
