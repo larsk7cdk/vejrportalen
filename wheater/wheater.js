@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   const API_KEY = "fdb9a4d45104310c165d2a834b8171d1";
   const API_URL = "https://api.openweathermap.org/data/2.5/";
   const API_UNITS = "metric";
@@ -20,8 +20,7 @@ $(document).ready(function () {
 
   // getWeather();
 
-
-  $("#search-form").submit(function () {
+  $("#search-form").submit(function() {
     event.preventDefault();
 
     $("#weather-no-content").hide();
@@ -36,40 +35,40 @@ $(document).ready(function () {
 
   function getWeather(city) {
     // var url = API_URL + "weather?q=" + city + "&appid=" + API_KEY + "&units=" + API_UNITS;
-    const url = API_URL + "forecast?q=" + city + "&appid=" + API_KEY + "&units=" + API_UNITS;
-    // const url = "/assets/data/hvidovre-forecast.json";
+    // const url = API_URL + "forecast?q=" + city + "&appid=" + API_KEY + "&units=" + API_UNITS;
+    const url = "/assets/data/hvidovre-forecast.json";
 
     $("#weather-loading-content").show();
     $("#weather-success-content").hide();
     $("#weather-error-content").hide();
 
-    setTimeout(function () {
-      $.getJSON(url, function (data) {
+    setTimeout(function() {
+      $.getJSON(url, function(data) {
         const filteredWeatherData = filterWeatherData(data);
         const parsedWeatherData = parseWeatherData(filteredWeatherData);
         setWeatherData(parsedWeatherData);
       })
-        .done(function () {
+        .done(function() {
           $("#weather-success-content").show();
         })
-        .fail(function () {
+        .fail(function() {
           $("#weather-error-content").show();
           console.log("error");
         })
-        .always(function () {
+        .always(function() {
           $("#weather-loading-content").hide();
         });
     }, 500);
   }
 
   function filterWeatherData(data) {
-    return data.list.filter(function (item) {
+    return data.list.filter(function(item) {
       return item.dt_txt.endsWith(WEATHER_TEMP_TIME);
     });
   }
 
   function parseWeatherData(data) {
-    return data.map(function (item) {
+    return data.map(function(item) {
       const dt = new Date(item.dt_txt);
 
       return {
@@ -90,7 +89,7 @@ $(document).ready(function () {
   }
 
   function setWeatherData(data) {
-    $.each(data, function (key, value) {
+    $.each(data, function(key, value) {
       $("#weekday-" + key + "-name").text(value.week_day_name);
       $("#weekday-" + key + "-img").attr("src", value.weather_icon);
       $("#weekday-" + key + "-temp").html(value.temp + "&#176;");
