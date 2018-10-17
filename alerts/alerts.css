@@ -1,5 +1,25 @@
-#hour,
-#minute,
-#second {
-  transition: transform .5s ease-in-out;
+/*#hour,*/
+/*#minute,*/
+/*#second {*/
+/*transition: transform .5s ease-in-out;*/
+/*}*/
+
+.bg {
+  stroke: none;
+  fill: white;
+}
+
+.fc {
+  stroke: none;
+  fill: black;
+}
+
+.h1 {
+  stroke: none;
+  fill: black;
+}
+
+.h2 {
+  stroke: none;
+  fill: #aa0000;
 }
