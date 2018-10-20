@@ -34,9 +34,7 @@ $(document).ready(function() {
   });
 
   function getWeather(city) {
-    // var url = API_URL + "weather?q=" + city + "&appid=" + API_KEY + "&units=" + API_UNITS;
     const url = API_URL + "forecast?q=" + city + "&appid=" + API_KEY + "&units=" + API_UNITS;
-    // const url = "/assets/data/hvidovre-forecast.json";
 
     $("#weather-loading-content").show();
     $("#weather-success-content").hide();
