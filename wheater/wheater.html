@@ -1,16 +1,31 @@
-<article class="row py-2 w-100 mx-auto">
+<section id="searchSection">
   <form id="search-form" class="form-inline" role="search">
     <input id="search-text" class="form-control mr-sm-2" type="text" placeholder="Søg efter by"
            aria-label="Search text" required>
     <button id="search-btn" type="submit" class="btn btn-outline-success my-2 my-sm-0">Hent</button>
   </form>
-</article>
-<hr>
+</section>
 
-<article id="weather-no-content">
-  <p class="pt-2">Der er ikke hentet nogen vejrudsigt</p>
+<!--<article class="row py-2 w-100 mx-auto">-->
+<!--<form id="search-form" class="form-inline" role="search">-->
+<!--<input id="search-text" class="form-control mr-sm-2" type="text" placeholder="Søg efter by"-->
+<!--aria-label="Search text" required>-->
+<!--<button id="search-btn" type="submit" class="btn btn-outline-success my-2 my-sm-0">Hent</button>-->
+<!--</form>-->
+<!--</article>-->
 
-</article>
+<!--<article class="">-->
+<!--<form id="search-form" class="form-inline" role="search">-->
+<!--<input id="search-text" class="form-control mr-sm-2" type="text" placeholder="Søg efter by"-->
+<!--aria-label="Search text" required>-->
+<!--<button id="search-btn" type="submit" class="btn btn-outline-success my-2 my-sm-0">Hent</button>-->
+<!--</form>-->
+<!--</article>-->
+<!--<hr>-->
+
+<!--<article id="weather-no-content">-->
+<!--<p class="pt-2">Der er ikke hentet nogen vejrudsigt</p>-->
+<!--</article>-->
 
 <article id="weather-loading-content">
   <div class="text-center">
@@ -18,6 +33,7 @@
     <p class="pt-2">Henter 5-døgns vejrudsigten for <span data-target="city"></span></p>
   </div>
 </article>
+
 
 <article id="weather-success-content">
   <header>
@@ -63,7 +79,6 @@
   <h2 class="text-danger">Ups...</h2>
   <p>Den valgte by kan ikke findes, prøv igen...</p>
 </article>
-
 
 <script src="./wheater/wheater.js"></script>
 

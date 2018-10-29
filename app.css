@@ -22,3 +22,7 @@ footer {
 *.icon-cloud-light {
   color: lightgray;
 }
+
+.fill {
+  height: 100vh;
+}

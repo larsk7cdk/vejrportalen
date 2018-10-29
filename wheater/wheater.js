@@ -1,9 +1,9 @@
 $(document).ready(function() {
-  const API_KEY = "fdb9a4d45104310c165d2a834b8171d1";
-  const API_URL = "https://api.openweathermap.org/data/2.5/";
+  const API_KEY   = "fdb9a4d45104310c165d2a834b8171d1";
+  const API_URL   = "https://api.openweathermap.org/data/2.5/";
   const API_UNITS = "metric";
 
-  const WEEK_DAY_NAMES = [
+  const WEEK_DAY_NAMES    = [
     "Søndag",
     "Mandag",
     "Tirsdag",
@@ -18,7 +18,10 @@ $(document).ready(function() {
   $("#weather-success-content").hide();
   $("#weather-error-content").hide();
 
+  $("#searchSection").removeClass().addClass("showSearchOnly");
+  $("#searchHr").hide();
   // getWeather();
+
 
   $("#search-form").submit(function() {
     event.preventDefault();
@@ -26,7 +29,7 @@ $(document).ready(function() {
     $("#weather-no-content").hide();
     $("#search-btn").trigger("blur");
 
-    const city = $("#search-text").val();
+    const city      = $("#search-text").val();
     const cityUpper = city.charAt(0).toUpperCase() + city.slice(1);
     $("[data-target=city]").text(cityUpper);
 
@@ -43,10 +46,12 @@ $(document).ready(function() {
     setTimeout(function() {
       $.getJSON(url, function(data) {
         const filteredWeatherData = filterWeatherData(data);
-        const parsedWeatherData = parseWeatherData(filteredWeatherData);
+        const parsedWeatherData   = parseWeatherData(filteredWeatherData);
         setWeatherData(parsedWeatherData);
       })
         .done(function() {
+          console.log("done");
+          $("#searchSection").removeClass().addClass("showSearchOnly1");
           $("#weather-success-content").show();
         })
         .fail(function() {

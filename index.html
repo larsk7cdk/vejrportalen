@@ -11,8 +11,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <link rel="stylesheet" href="./alerts/alerts.css">
   <link rel="stylesheet" href="./wheater/wheater.css">
+  <link rel="stylesheet" href="./components/snackbar.css">
   <link rel="stylesheet" href="./app.css">
 </head>
 <body>
@@ -33,6 +36,10 @@
           <a id="nav-wheater#wheater" data-target="nav-click" class="nav-link" href="#">Vejrudsigten</a>
         </li>
         <li class="nav-item">
+          <a id="nav-alerts#alerts" data-target="nav-click" class="nav-link" href="#">
+            Varslinger<span class="badge badge-pill badge-info ml-1">9</span></a>
+        </li>
+        <li class="nav-item">
           <a id="nav-wheaterreport#wheaterreport-form" data-target="nav-click" class="nav-link" href="#">Vejrindberetning</a>
         </li>
         <li class="nav-item">
@@ -47,13 +54,12 @@
 </header>
 
 <article class="container bg-light pb-2 fill">
-  <section class="row py-3">
-    <aside class="col-md-3 border-right" role="complementary">
-      <div id="alerts"></div>
-      <hr class="d-md-none">
-    </aside>
-    <main class="col-md-9" role="main">
-      <div id="content"></div>
+  <section>
+    <!--<aside class="col-md-3 border-right" role="complementary">-->
+    <!--<div id="alerts"></div>-->
+    <!--<hr class="d-md-none">-->
+    <!--</aside>-->
+    <main id="content" class="fill" role="main">
     </main>
   </section>
 </article>
@@ -72,7 +78,7 @@
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-
+<script src="./components/snackbar.js" defer></script>
 <script src="./app.js" defer></script>
 
 </body>

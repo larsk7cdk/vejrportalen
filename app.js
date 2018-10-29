@@ -40,4 +40,10 @@ $(document).ready(function() {
       changePage(id.substring(4, id.length));
     });
   }
+
+  $("#wheaterSnackbar").click(function() {
+    let snackbar = new SnackBar();
+    snackbar.make("message",
+      ["Unable to connect the server", null, "bottom", "center"], 5000);
+  });
 });

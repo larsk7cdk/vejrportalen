@@ -15,12 +15,7 @@
   text-align: center;
 }
 
-.wheater-card img {
-  width: 50px;
-}
-
 .wheater-card:last-child {
-
 }
 
 @media (max-width: 575px) {
@@ -37,7 +32,8 @@
 
 @media (min-width: 575px) {
   .wheater-card {
-    width: 150px;
+    display: flex;
+    width: 100%;
     border-right: 1px solid lightgray;
   }
 
@@ -50,6 +46,15 @@
   }
 }
 
-.fill {
-  height: 100vh;
+.showSearchOnly {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 33%;
+}
+
+.showSearchOnly1 {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
