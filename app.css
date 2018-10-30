@@ -26,3 +26,13 @@ footer {
 .fill {
   height: calc(100vh - 105px);
 }
+
+#alert-overlay {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  left: 0;
+  right: 0;
+  bottom: 35px;
+  z-index: 2;
+}

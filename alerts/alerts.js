@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   function getPositions(utc) {
     let date = new Date();
 
@@ -32,9 +32,9 @@ $(document).ready(function() {
     minPosition = positions.minPosition + 6 / 60;
     secPosition = positions.secPosition + 6;
 
-    HOURHAND.css({ transform: "rotate(" + hrPosition + "deg)" });
-    MINUTEHAND.css({ transform: "rotate(" + minPosition + "deg)" });
-    SECONDHAND.css({ transform: "rotate(" + secPosition + "deg)" });
+    HOURHAND.css({transform: "rotate(" + hrPosition + "deg)"});
+    MINUTEHAND.css({transform: "rotate(" + minPosition + "deg)"});
+    SECONDHAND.css({transform: "rotate(" + secPosition + "deg)"});
   }
 
   function runTheClocks() {
@@ -42,7 +42,7 @@ $(document).ready(function() {
     runTheClock(true);
   }
 
-  (function() {
+  (function () {
     setInterval(runTheClocks, 1000);
   })();
 });

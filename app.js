@@ -1,9 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
   loadAlerts();
   changePage("wheater#wheater");
   // changePage("wheater#tabs");
   // changePage("subscription#subscription-form");
   setupEvents();
+
+  window.cp = changePage;
 
   // functions
   function loadAlerts() {
@@ -14,7 +16,7 @@ $(document).ready(function() {
     var feature = target.split("#")[0];
     var page = target.split("#")[1];
 
-    $("#content").load(feature + "/" + page + ".html", function() {
+    $("#content").load(feature + "/" + page + ".html", function () {
       animateOpacity("#content", 500, 0.5);
 
       var id = "nav-" + feature;
@@ -29,21 +31,15 @@ $(document).ready(function() {
 
   function animateOpacity(selector, speed, startOpacity) {
     var s = $(selector);
-    s.css({ opacity: startOpacity });
-    s.animate({ opacity: "1" }, speed);
+    s.css({opacity: startOpacity});
+    s.animate({opacity: "1"}, speed);
   }
 
   // setup events
   function setupEvents() {
-    $("a[data-target='nav-click']").click(function(event) {
+    $("a[data-target='nav-click']").click(function (event) {
       var id = event.currentTarget.id;
       changePage(id.substring(4, id.length));
     });
   }
-
-  $("#wheaterSnackbar").click(function() {
-    let snackbar = new SnackBar();
-    snackbar.make("message",
-      ["Unable to connect the server", null, "bottom", "center"], 5000);
-  });
 });
