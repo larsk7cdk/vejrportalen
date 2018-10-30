@@ -1,31 +1,19 @@
-<section id="searchSection">
-  <form id="search-form" class="form-inline" role="search">
-    <input id="search-text" class="form-control mr-sm-2" type="text" placeholder="Søg efter by"
-           aria-label="Search text" required>
-    <button id="search-btn" type="submit" class="btn btn-outline-success my-2 my-sm-0">Hent</button>
-  </form>
+<section id="search-section">
+  <div class="form-group">
+    <form id="search-form" class="form-inline" role="search">
+      <input id="search-text" class="form-control mr-2" type="text" placeholder="Søg efter by"
+             aria-label="Search text" required>
+      <button id="search-btn" type="submit" class="btn btn-outline-success my-2 my-sm-0">Hent</button>
+    </form>
+    <!--<div id="search-buttons">-->
+      <!--<div class="d-flex justify-content-around mt-3">-->
+        <!--<button class="btn btn-outline-secondary" onclick="changePage('target')" >Varslinger<span class="badge badge-pill badge-info ml-1">9</span>-->
+        <!--</button>-->
+        <!--<button class="btn btn-outline-secondary">Vejrindberetning</button>-->
+      <!--</div>-->
+    <!--</div>-->
+  </div>
 </section>
-
-<!--<article class="row py-2 w-100 mx-auto">-->
-<!--<form id="search-form" class="form-inline" role="search">-->
-<!--<input id="search-text" class="form-control mr-sm-2" type="text" placeholder="Søg efter by"-->
-<!--aria-label="Search text" required>-->
-<!--<button id="search-btn" type="submit" class="btn btn-outline-success my-2 my-sm-0">Hent</button>-->
-<!--</form>-->
-<!--</article>-->
-
-<!--<article class="">-->
-<!--<form id="search-form" class="form-inline" role="search">-->
-<!--<input id="search-text" class="form-control mr-sm-2" type="text" placeholder="Søg efter by"-->
-<!--aria-label="Search text" required>-->
-<!--<button id="search-btn" type="submit" class="btn btn-outline-success my-2 my-sm-0">Hent</button>-->
-<!--</form>-->
-<!--</article>-->
-<!--<hr>-->
-
-<!--<article id="weather-no-content">-->
-<!--<p class="pt-2">Der er ikke hentet nogen vejrudsigt</p>-->
-<!--</article>-->
 
 <article id="weather-loading-content">
   <div class="text-center">
@@ -81,4 +69,3 @@
 </article>
 
 <script src="./wheater/wheater.js"></script>
-

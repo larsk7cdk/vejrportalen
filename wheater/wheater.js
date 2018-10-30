@@ -18,8 +18,8 @@ $(document).ready(function() {
   $("#weather-success-content").hide();
   $("#weather-error-content").hide();
 
-  $("#searchSection").removeClass().addClass("showSearchOnly");
-  $("#searchHr").hide();
+  $("#search-section").removeClass().addClass("show-search-only");
+  $("#search-buttons").show();
   // getWeather();
 
 
@@ -51,7 +51,8 @@ $(document).ready(function() {
       })
         .done(function() {
           console.log("done");
-          $("#searchSection").removeClass().addClass("showSearchOnly1");
+          $("#search-section").removeClass().addClass("show-search-top-only");
+          $("#search-buttons").hide();
           $("#weather-success-content").show();
         })
         .fail(function() {

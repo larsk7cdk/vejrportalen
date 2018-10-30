@@ -1,3 +1,7 @@
+#search-text {
+  width: 250px;
+}
+
 .weather-forecast {
   display: flex;
   justify-content: center;
@@ -46,14 +50,14 @@
   }
 }
 
-.showSearchOnly {
+.show-search-only {
   display: flex;
   justify-content: center;
   position: relative;
   top: 33%;
 }
 
-.showSearchOnly1 {
+.show-search-top-only {
   display: flex;
   margin-top: 15px;
   margin-bottom: 30px;
