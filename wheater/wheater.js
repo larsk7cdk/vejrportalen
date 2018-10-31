@@ -1,6 +1,10 @@
 $(document).ready(function () {
-  const API_KEY = "fdb9a4d45104310c165d2a834b8171d1";
+  const API_URL_GEO = "https://eu1.locationiq.com/v1/";
+  const API_KEY_GEO = "6147b594e590c1";
+  const API_FORMAT_GEO = "json";
+
   const API_URL = "https://api.openweathermap.org/data/2.5/";
+  const API_KEY = "fdb9a4d45104310c165d2a834b8171d1";
   const API_UNITS = "metric";
 
   const WEEK_DAY_NAMES = [
@@ -12,6 +16,7 @@ $(document).ready(function () {
     "Fredag",
     "Lørdag"
   ];
+
   const WEATHER_TEMP_TIME = "15:00:00";
 
   $("#weather-loading-content").hide();
@@ -21,6 +26,13 @@ $(document).ready(function () {
   $("#search-section").removeClass().addClass("show-search-only");
   $("#search-buttons").show();
   // getWeather();
+
+  $("#search-city").on("click", function () {
+    // event.preventDefault();
+
+    // getCity(55.642522, 12.475386);
+    getCity(undefined, undefined);
+  });
 
 
   $("#search-form").submit(function () {
@@ -35,6 +47,32 @@ $(document).ready(function () {
 
     getWeather(city);
   });
+
+  function getCityCallback(data) {
+    const town = data.address.town;
+
+    if (town) {
+      getWeather(data.address.town);
+    }
+
+  }
+
+  function getCity(lat, lon) {
+    // https://eu1.locationiq.com/v1/reverse.php?key=6147b594e590c1&lat=55.642522&lon=12.475386&format=json
+    const url = API_URL_GEO + "reverse.php?key=" + API_KEY_GEO + "&lat=" + lat + "&lon=" + lon + "&format=" + API_FORMAT_GEO;
+
+    $.getJSON(url, function (data) {
+      getCityCallback(data);
+    })
+      .done(function () {
+      })
+      .fail(function () {
+        console.log("error");
+        getCityCallback(null);
+      })
+      .always(function () {
+      });
+  }
 
   function getWeather(city) {
     const url = API_URL + "forecast?q=" + city + "&appid=" + API_KEY + "&units=" + API_UNITS;
