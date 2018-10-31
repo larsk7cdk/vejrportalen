@@ -1,41 +1,46 @@
-$(document).ready(function () {
-  const API_URL_GEO = "https://eu1.locationiq.com/v1/";
-  const API_KEY_GEO = "6147b594e590c1";
-  const API_FORMAT_GEO = "json";
-
+$(document).ready(function() {
   const API_URL = "https://api.openweathermap.org/data/2.5/";
   const API_KEY = "fdb9a4d45104310c165d2a834b8171d1";
   const API_UNITS = "metric";
 
-  const WEEK_DAY_NAMES = [
-    "Søndag",
-    "Mandag",
-    "Tirsdag",
-    "Onsdag",
-    "Torsdag",
-    "Fredag",
-    "Lørdag"
-  ];
-
+  const WEEK_DAY_NAMES = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
   const WEATHER_TEMP_TIME = "15:00:00";
 
   $("#weather-loading-content").hide();
   $("#weather-success-content").hide();
   $("#weather-error-content").hide();
 
-  $("#search-section").removeClass().addClass("show-search-only");
+  $("#search-section")
+    .removeClass()
+    .addClass("show-search-only");
   $("#search-buttons").show();
   // getWeather();
 
-  $("#search-city").on("click", function () {
+  $("#search-city").on("click", function() {
     // event.preventDefault();
 
-    // getCity(55.642522, 12.475386);
-    getCity(undefined, undefined);
+    Geo.p1.then(console.log).catch(console.log);
+
+    // Geo.p1().then(function(d){
+    //   console.log(d);
+    // });
+
+    // Geo.getcityByGeo(55.642522, 12.475386).then(function(data) {
+    //   getWeather(data.address.town);
+    // });
+    //
+
+    // Geo.getcity2()
+    //   .then(function(data) {
+    //     console.log("data", data);
+    //     // getWeather(data.address.town);
+    //   })
+    //   .catch(function(err) {
+    //     console.log("err", err);
+    //   });
   });
 
-
-  $("#search-form").submit(function () {
+  $("#search-form").submit(function() {
     event.preventDefault();
 
     $("#weather-no-content").hide();
@@ -48,69 +53,46 @@ $(document).ready(function () {
     getWeather(city);
   });
 
-  function getCityCallback(data) {
-    const town = data.address.town;
-
-    if (town) {
-      getWeather(data.address.town);
-    }
-
-  }
-
-  function getCity(lat, lon) {
-    // https://eu1.locationiq.com/v1/reverse.php?key=6147b594e590c1&lat=55.642522&lon=12.475386&format=json
-    const url = API_URL_GEO + "reverse.php?key=" + API_KEY_GEO + "&lat=" + lat + "&lon=" + lon + "&format=" + API_FORMAT_GEO;
-
-    $.getJSON(url, function (data) {
-      getCityCallback(data);
-    })
-      .done(function () {
-      })
-      .fail(function () {
-        console.log("error");
-        getCityCallback(null);
-      })
-      .always(function () {
-      });
-  }
-
   function getWeather(city) {
+    console.log(city);
     const url = API_URL + "forecast?q=" + city + "&appid=" + API_KEY + "&units=" + API_UNITS;
 
     $("#weather-loading-content").show();
     $("#weather-success-content").hide();
     $("#weather-error-content").hide();
 
-    setTimeout(function () {
-      $.getJSON(url, function (data) {
+    setTimeout(function() {
+      $.getJSON(url, function(data) {
         const filteredWeatherData = filterWeatherData(data);
         const parsedWeatherData = parseWeatherData(filteredWeatherData);
         setWeatherData(parsedWeatherData);
       })
-        .done(function () {
+        .done(function() {
           console.log("done");
-          $("#search-section").removeClass().addClass("show-search-top-only");
+          $("#search-section")
+            .removeClass()
+            .addClass("show-search-top-only");
           $("#search-buttons").hide();
           $("#weather-success-content").show();
         })
-        .fail(function () {
+        .fail(function() {
           $("#weather-error-content").show();
           console.log("error");
         })
-        .always(function () {
+        .always(function() {
           $("#weather-loading-content").hide();
         });
     }, 500);
   }
 
   function filterWeatherData(data) {
-    return data.list.filter(function (item) {
+    return data.list.filter(function(item) {
       return item.dt_txt.endsWith(WEATHER_TEMP_TIME);
     });
   }
 
   function parseWeatherData(data) {
-    return data.map(function (item) {
+    return data.map(function(item) {
       const dt = new Date(item.dt_txt);
 
       return {
@@ -131,7 +113,7 @@ $(document).ready(function () {
   }
 
   function setWeatherData(data) {
-    $.each(data, function (key, value) {
+    $.each(data, function(key, value) {
       $("#weekday-" + key + "-name").text(value.week_day_name);
       $("#weekday-" + key + "-img").attr("src", value.weather_icon);
       $("#weekday-" + key + "-temp").html(value.temp + "&#176;");
