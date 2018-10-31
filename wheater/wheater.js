@@ -14,31 +14,14 @@ $(document).ready(function() {
     .removeClass()
     .addClass("show-search-only");
   $("#search-buttons").show();
-  // getWeather();
 
-  $("#search-city").on("click", function() {
-    // event.preventDefault();
-
-    Geo.p1.then(console.log).catch(console.log);
-
-    // Geo.p1().then(function(d){
-    //   console.log(d);
-    // });
-
-    // Geo.getcityByGeo(55.642522, 12.475386).then(function(data) {
-    //   getWeather(data.address.town);
-    // });
-    //
-
-    // Geo.getcity2()
-    //   .then(function(data) {
-    //     console.log("data", data);
-    //     // getWeather(data.address.town);
-    //   })
-    //   .catch(function(err) {
-    //     console.log("err", err);
-    //   });
-  });
+  Geo.p1()
+    .then(function(data) {
+      getWeather(data);
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
 
   $("#search-form").submit(function() {
     event.preventDefault();
@@ -47,15 +30,16 @@ $(document).ready(function() {
     $("#search-btn").trigger("blur");
 
     const city = $("#search-text").val();
-    const cityUpper = city.charAt(0).toUpperCase() + city.slice(1);
-    $("[data-target=city]").text(cityUpper);
 
     getWeather(city);
   });
 
   function getWeather(city) {
-    console.log(city);
     const url = API_URL + "forecast?q=" + city + "&appid=" + API_KEY + "&units=" + API_UNITS;
+
+    const cityUpper = city.charAt(0).toUpperCase() + city.slice(1);
+    $("#search-text").val(cityUpper);
+    $("[data-target=city]").text(cityUpper);
 
     $("#weather-loading-content").show();
     $("#weather-success-content").hide();
@@ -68,7 +52,6 @@ $(document).ready(function() {
         setWeatherData(parsedWeatherData);
       })
         .done(function() {
-          console.log("done");
           $("#search-section")
             .removeClass()
             .addClass("show-search-top-only");
