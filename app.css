@@ -24,7 +24,8 @@ footer {
 }
 
 .fill {
-  height: calc(100vh - 105px);
+  height: calc(100vh );
+  margin-bottom: 25px;
 }
 
 #alert-overlay {
