@@ -5,7 +5,7 @@ $(document).ready(function() {
   const API_KEY = "6147b594e590c1";
   const API_FORMAT = "json";
 
-  Geo.p1 = function() {
+  Geo.getTown = function() {
     return new Promise(function(resolve, reject) {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(

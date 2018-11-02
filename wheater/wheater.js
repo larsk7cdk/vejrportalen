@@ -15,7 +15,7 @@ $(document).ready(function() {
     .addClass("show-search-only");
   $("#search-buttons").show();
 
-  Geo.p1()
+  Geo.getTown()
     .then(function(data) {
       getWeather(data);
     })
