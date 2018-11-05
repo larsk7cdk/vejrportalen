@@ -1,73 +1,86 @@
-<section id="search-section">
+<section id="search-section" class="section-style">
   <div class="form-group">
     <form id="search-form" class="form-inline" role="search">
-      <input id="search-text" class="form-control mr-2" type="text" placeholder="Søg efter by"
+      <label for="search-text" class="pr-3">Søg efter by:</label>
+      <input id="search-text" class="form-control mr-2" type="text" placeholder="f.eks. Hvidovre"
              aria-label="Search text" required>
       <button id="search-btn" type="submit" class="btn btn-outline-success my-2 my-sm-0">Hent</button>
     </form>
-    <div id="search-buttons">
-      <div class="d-flex justify-content-around mt-3">
-        <button class="btn btn-outline-secondary" onclick="window.cp('alerts#alerts')">Varslinger<span class="badge badge-pill badge-warning ml-1">3</span>
-        </button>
-        <button class="btn btn-outline-secondary" onclick="window.cp('wheaterreport#wheaterreport-form')">Vejrindberetning</button>
-      </div>
+  </div>
+  <hr>
+
+  <article id="weather-loading-content" class="p-2">
+    <div class="text-center">
+      <i class="fas fa-sync fa-spin fa-3x"></i>
+      <p class="pt-2">Henter 5-døgns vejrudsigten for <span data-target="city"></span></p>
     </div>
+  </article>
+
+
+  <article id="weather-success-content" class="p-2">
+    <header>
+      <h1 data-target="city"></h1>
+      <p>Her er vejrudsigten for de næste 5 dage i <strong data-target="city"></strong></p>
+    </header>
+
+    <section id="weather-forecast" class="weather-forecast text-white">
+      <article class="wheater-card">
+        <h5 id="weekday-0-name"></h5>
+        <img id="weekday-0-img"><br>
+        <span id="weekday-0-temp"></span><br>
+        <span id="weekday-0-desc"></span><br>
+      </article>
+      <article class="wheater-card">
+        <h5 id="weekday-1-name"></h5>
+        <img id="weekday-1-img"><br>
+        <span id="weekday-1-temp"></span><br>
+        <span id="weekday-1-desc"></span><br>
+      </article>
+      <article class="wheater-card">
+        <h5 id="weekday-2-name"></h5>
+        <img id="weekday-2-img"><br>
+        <span id="weekday-2-temp"></span><br>
+        <span id="weekday-2-desc"></span><br>
+      </article>
+      <article class="wheater-card">
+        <h5 id="weekday-3-name"></h5>
+        <img id="weekday-3-img"><br>
+        <span id="weekday-3-temp"></span><br>
+        <span id="weekday-3-desc"></span><br>
+      </article>
+      <article class="wheater-card">
+        <h5 id="weekday-4-name"></h5>
+        <img id="weekday-4-img"><br>
+        <span id="weekday-4-temp"></span><br>
+        <span id="weekday-4-desc"></span><br>
+      </article>
+    </section>
+  </article>
+
+  <article id="weather-error-content" class="pb-2">
+    <p>Søg efter vejret i en by...</p>
+  </article>
+
+</section>
+<hr>
+<section id="info-section" class="section-info-style">
+  <div class="info-style" style="background-color: #D0F5A9">
+    <h5>Varslinger</h5>
+    <p>Under varslinger er det muligt at få oplysninger om indberettede varslinger</p>
+    <button class="btn btn-outline-secondary" onclick="window.cp('alerts#alerts')">Varslinger</button>
+  </div>
+  <div class="info-style" style="background-color: #A9E2F3">
+    <h5>Vejrindberetning</h5>
+    <p>Her er det muligt at indberette vejrvarslinger</p>
+    <button class="btn btn-outline-secondary" onclick="window.cp('wheaterreport#wheaterreport-form')">Vejrindberetning</button>
+  </div>
+  <div class="info-style" style="background-color: #F5F6CE">
+    <h5>Abonnement</h5>
+    <p>Opret abonnement og få notifikationer ved nye varslinger</p>
+    <button class="btn btn-outline-secondary" onclick="window.cp('subscription#subscription-form')">Abonnement</button>
   </div>
 </section>
 
-<article id="weather-loading-content">
-  <div class="text-center">
-    <i class="fas fa-sync fa-spin fa-3x"></i>
-    <p class="pt-2">Henter 5-døgns vejrudsigten for <span data-target="city"></span></p>
-  </div>
-</article>
-
-
-<article id="weather-success-content">
-  <header>
-    <h1 data-target="city"></h1>
-    <p>Her er vejrudsigten for de næste 5 dage i <strong data-target="city"></strong></p>
-  </header>
-
-  <section id="weather-forecast" class="weather-forecast text-white">
-    <article class="wheater-card">
-      <h5 id="weekday-0-name"></h5>
-      <img id="weekday-0-img"><br>
-      <span id="weekday-0-temp"></span><br>
-      <span id="weekday-0-desc"></span><br>
-    </article>
-    <article class="wheater-card">
-      <h5 id="weekday-1-name"></h5>
-      <img id="weekday-1-img"><br>
-      <span id="weekday-1-temp"></span><br>
-      <span id="weekday-1-desc"></span><br>
-    </article>
-    <article class="wheater-card">
-      <h5 id="weekday-2-name"></h5>
-      <img id="weekday-2-img"><br>
-      <span id="weekday-2-temp"></span><br>
-      <span id="weekday-2-desc"></span><br>
-    </article>
-    <article class="wheater-card">
-      <h5 id="weekday-3-name"></h5>
-      <img id="weekday-3-img"><br>
-      <span id="weekday-3-temp"></span><br>
-      <span id="weekday-3-desc"></span><br>
-    </article>
-    <article class="wheater-card">
-      <h5 id="weekday-4-name"></h5>
-      <img id="weekday-4-img"><br>
-      <span id="weekday-4-temp"></span><br>
-      <span id="weekday-4-desc"></span><br>
-    </article>
-  </section>
-</article>
-
-<article id="weather-error-content" class="pb-2">
-  <h2 class="text-danger">Ups...</h2>
-  <p>Den valgte by kan ikke findes, prøv igen...</p>
-</article>
-
-
+<!--scripts-->
 <script src="./wheater/geo.js"></script>
 <script src="./wheater/wheater.js"></script>
