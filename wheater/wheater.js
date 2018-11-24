@@ -81,7 +81,7 @@ $(document).ready(function() {
         weather_id: item.weather[0].id,
         weather_main: item.weather[0].main,
         weather_description: item.weather[0].description,
-        weather_icon: "./assets/weather-icons/" + item.weather[0].icon + ".png",
+        weather_icon: "./assets/weather-icons/" + item<.weather[0].icon + ".png",
         wind_speed: item.wind.speed,
         wind_deg: item.wind.deg
       };
