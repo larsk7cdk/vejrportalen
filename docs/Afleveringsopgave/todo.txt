@@ -1,16 +1,7 @@
 ToDo's afleveringsopgave 29-11 kl. 14:05
 
- - Casebeskrivelse
- - Problemstillinger/Afgrænsninger
  - Problemformulering
- - Analyse
- 
- - Beskrivelse af 
-	- Varslinger kode
-	- Abonnement kode
-	- Vejr kode
-	- Backend kode
-	
- - Brugervenlighed
-	
+ - Analyse		
  - Konklusion
+ 
+ 26.562
